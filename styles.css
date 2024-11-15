@@ -1,0 +1,81 @@
+*{
+    padding : 0;
+    margin : 0;
+    box-sizing : border-box;
+}
+body{
+    background : linear-gradient(90deg, hsl(300, 89%, 18%) 0%, hsl(300, 87%, 33%)50%, hsl(300, 88%, 42%)100%);
+    height : 100vh;
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.wrapper{
+    border : 10px solid white;
+    border-radius: 20px;
+    width : 25em;
+}
+.display{
+    height : 25vh;
+    background-color: rgb(47, 46, 46);
+    color : hsl(0, 2%, 76%);
+    border-radius : 10px 10px 0 0;
+    display : flex;
+    flex-direction : column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding : 1rem;
+}
+.display > p{
+    margin : 5px;
+}
+
+.display>p:last-child{
+    font-size: 2.5rem;
+}
+.buttons{
+    display : flex;
+    flex-direction: column;
+}
+button{
+    background-color: hsla(240, 31%, 19%, 0.699);
+    color : hsl(0, 2%, 76%);
+    padding : 1.85em;
+    font-weight: bold;
+    font-size : 1rem;
+    background-color: rgb(29, 29, 29);
+    border : 1px solid rgb(78, 77, 77)
+}
+.button-4-5-container{
+    display : grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-width : 0;
+}
+.buttons1, .buttons2,.buttons3{ 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+}
+.itemRes{
+    grid-row: span 2;
+}
+svg{
+    fill : hsl(0, 2%, 76%);
+}
+.purple{
+    background-color:  hsl(300, 76%, 54%);
+}
+.itemAc, .itemdiv, .itemmul{
+    color :hsl(300, 76%, 54%)
+}
+.itemRes{
+    border-radius : 0 0 10px 0;
+}
+.itemdot{
+    border-radius : 0 0 0 10px;
+}
+button:active{
+    transform: scale(0.95);
+    outline : none;
+    border-color: transparent;
+}
