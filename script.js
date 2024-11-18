@@ -10,7 +10,7 @@ const subtraction = document.querySelector(".itemsub")
 const division = document.querySelector(".itemdiv");
 const multiplication = document.querySelector(".itemmul");
 const equals = document.querySelector(".itemRes");
-const del = document.querySelector(".itemdel");
+const del = document.querySelector(".itemDel");
 const reset = document.querySelector(".itemAc");
 const percentage = document.querySelector(".itemper");
 const showInput = document.querySelector(".user-input");
@@ -22,8 +22,8 @@ function getNum(num){
   if(isError) return
 
     if(operator === ""){ if(num==="." && firstNum.includes(".") )return;
-      if(isFirstNum == true){
-         firstNum = "";
+      if(isFirstNum){
+        firstNum = "";
         showInput.textContent = num;
         isFirstNum = false;
        }else{
@@ -89,7 +89,7 @@ function calculate(){
     return "Math Error"
   }
 
-  if(operator === "*"){
+  if(operator === "×"){
     return parseFloat(firstNum) * parseFloat(secondNum)
   }else{
     return secondNum ==="0"
@@ -113,6 +113,27 @@ function getPercentage(){
   }
 }
 
+function delNum(){
+  if (isError) return
+
+  if (operator === ""){
+    if(firstNum !== ""){
+      firstNum = firstNum.slice(0, -1);
+      showInput.textContent = firstNum || "";
+    }
+  }
+
+  if (operator !=="" && secondNum === ""){
+    operator = operator.slice(0, -1);
+    showInput.textContent = firstNum + operator;
+  }
+  
+  if (operator !=="" && secondNum !== ""){
+    secondNum = secondNum.slice(0, -1);
+    showInput.textContent = firstNum + operator + (secondNum || "")
+  }
+}
+
 
 
 
@@ -128,10 +149,10 @@ subtraction.addEventListener("click", () => {
 })
 
 multiplication.addEventListener("click", () => {
-    getOperator("*");
+    getOperator("×");
 })
 division.addEventListener("click", () => {
-    getOperator("/");
+    getOperator("÷");
 })
 equals.addEventListener("click", () => {
     if(isError) return
@@ -166,4 +187,8 @@ reset.addEventListener("click", () => {
 })
 percentage.addEventListener("click", () => {
   getPercentage()
+})
+
+del.addEventListener("click", () => {
+  delNum()
 })
