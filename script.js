@@ -99,6 +99,20 @@ function calculate(){
 }
 }
 
+function getPercentage(){
+  if(isError) return
+
+  if(operator === ""){
+    if(firstNum === "") return
+    firstNum = (parseFloat(firstNum) /100 )
+    showInput.textContent = firstNum;
+  }else{
+    if(secondNum === "") return
+    secondNum = (parseFloat(secondNum)/ 100);
+    showInput.textContent = firstNum + operator + secondNum
+  }
+}
+
 
 
 
@@ -120,6 +134,8 @@ division.addEventListener("click", () => {
     getOperator("/");
 })
 equals.addEventListener("click", () => {
+    if(isError) return
+
     let result = calculate()
     if (result === "Math Error") {
       showResult.textContent = result;
@@ -147,4 +163,7 @@ reset.addEventListener("click", () => {
     showResult.textContent = 0;
     isError = false;
 
+})
+percentage.addEventListener("click", () => {
+  getPercentage()
 })
